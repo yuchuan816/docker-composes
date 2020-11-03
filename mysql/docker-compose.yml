@@ -1,5 +1,4 @@
 version: "3.8"
-
 services:
   mysql:
     container_name: mysql
@@ -11,5 +10,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "root"
     volumes:
-      - ./db/:/var/lib/mysql/
-      - ./conf/my.cnf:/etc/my.cnf
+      - ./volume/db/:/var/lib/mysql/
+      - ./volume/conf/my.cnf:/etc/my.cnf
