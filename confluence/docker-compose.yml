@@ -1,25 +1,14 @@
-# sudo docker cp confluence:/opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar ./atlassian-extras-2.4.jar
-# sudo docker cp ./atlassian-extras-2.4.jar confluence:/opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar.yuchuan
 version: '3.8'
 services:
-  confluence-mysql:
-    container_name: confluence-mysql
-    image: mysql:5.6
-    command: --default-authentication-plugin=mysql_native_password
-    restart: unless-stopped
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: "confluence"
-    volumes:
-      - ./volume/mysql/db/:/var/lib/mysql/
-      - ./volume/mysql/conf/my.cnf:/etc/my.cnf
-
   confluence:
     image: cptactionhank/atlassian-confluence
     restart: unless-stopped
     ports:
       - 8090:8090
-    depends_on:
-      - confluence-mysql
+    networks:
+      - confluence-mysql_custom-network
     container_name: confluence
+
+networks:
+  confluence-mysql_custom-network:
+   external: true
