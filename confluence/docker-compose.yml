@@ -12,7 +12,7 @@ services:
       - ./volume/mysql/conf/my.cnf:/etc/my.cnf
 
   confluence:
-    image: cptactionhank/atlassian-confluence
+    image: atlassian-confluence:agent
     user: root
     restart: unless-stopped
     ports:
