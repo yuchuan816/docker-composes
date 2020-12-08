@@ -10,7 +10,7 @@ sudo docker cp ./atlassian-extras-2.4.jar confluence:/opt/atlassian/confluence/c
 java -jar ./atlassian-agent.jar -m dqzboy@xxxx -n dqzboy.com -p  conf -o http://47.94.141.227:8091/ -s BR2A-OKF0-3BG0-NIDS
 
 # confluence 插件授权
-java -jar ./atlassian-agent.jar -m dqzboy@xxxx -n dqzboy.com -p com.gliffy.integration.confluence -o http://47.94.141.227:8091 -s BR2A-OKF0-3BG0-NIDS
+java -jar /Users/liuyuchuan/Desktop/project/atlassian-agent-v1.2.3/atlassian-agent.jar -m dqzboy@xxxx -n dqzboy.com -o https://confluence.66plat.com/ -s B6IF-QR11-DET9-R943 -p com.k15t.scroll.scroll-versions
 
 # 新建数据库
 CREATE DATABASE confluence CHARACTER SET utf8 COLLATE utf8_bin;
