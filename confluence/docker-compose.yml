@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   confluence-mysql:
     container_name: confluence-mysql
@@ -12,8 +12,10 @@ services:
       - ./volume/mysql/conf/my.cnf:/etc/my.cnf
 
   confluence:
-    image: atlassian-confluence:agent
+    image: cptactionhank/atlassian-confluence:agent
     user: root
+    environment:
+      TZ: "Asia/Shanghai"
     restart: unless-stopped
     ports:
       - 8090:8090
