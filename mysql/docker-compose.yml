@@ -10,10 +10,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "root"
     networks:
-      - custom-network
+      - network
     volumes:
       - ./volume/db/:/var/lib/mysql/
       - ./volume/conf/my.cnf:/etc/my.cnf
 
 networks:
-  custom-network:
+  network:
