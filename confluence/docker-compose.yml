@@ -5,8 +5,10 @@ services:
     image: mysql:5.6
     command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
+    ports:
+      - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./volume/mysql/db/:/var/lib/mysql/
       - ./volume/mysql/conf/my.cnf:/etc/my.cnf
@@ -15,10 +17,12 @@ services:
     image: cptactionhank/atlassian-confluence:agent
     user: root
     environment:
-      TZ: "Asia/Shanghai"
+      TZ: Asia/Shanghai
     restart: unless-stopped
     ports:
       - 8090:8090
     volumes:
-      - ./volume/confluence/confluence/:/var/atlassian/confluence/
+      - ./volume/confluence/confluence/:/var/atlassian/confluence
+      - ./volume/confluence/fonts/:/fonts
+      - ./volume/confluence/setenv.sh:/opt/atlassian/confluence/bin/setenv.sh
     container_name: confluence
